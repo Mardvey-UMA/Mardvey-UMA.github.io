@@ -5,3 +5,14 @@ buttons.forEach(button => {
     console.log(`Нажата кнопка ${button.id}`);
   });
 });
+
+let tg = window.Telegram.WebApp;
+tg.expand();
+let btn1 = document.getElementById("button1");
+btn1.addEventListener("click", () => {
+  let data = {
+    name: "Aboba",
+    surname: "Bob"
+  }
+  tg.sendData(JSON.stringify(data));
+});

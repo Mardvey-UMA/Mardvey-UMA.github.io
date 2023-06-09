@@ -15,20 +15,28 @@ let item = "";
 
 let btn1 = document.getElementById("button1");
 btn1.addEventListener("click", function(){
+  item = "1";
   if (tg.MainButton.isVisible){
+    item = "1";
     tg.MainButton.hide();
   }
-  else{
+  /*else{
     tg.MainButton.setText("Вы выбрали задачу 1");
     item = "1";
     MainButton.show();
+  }*/else{
+    tg.sendData(item);
   }
 });
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
   tg.sendData(item);
 });
-
+/*
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
+  tg.sendData(item);
+});
+*/
 let usercard = document.getElementById("usercard");
 let p = document.createElement("p");
 p.innerText = `${tg.initDataUnsafe.user.first_name} ${tg.initDataUnsafe.user.last_name}`
